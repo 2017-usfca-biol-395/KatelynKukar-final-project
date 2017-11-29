@@ -9,9 +9,43 @@ bibliography: references.bib
 csl: bioinformatics.csl
 ---
 
-# Introduction
+```{r, add in all libraries}
+library("dplyr")
+library("tidyr")
+library("knitr")
+library("ggplot2")
+library("citr")
+library("dada2")
+library("seqinr")
+library("mctoolsr")
+library("phyloseq")
+library("RColorBrewer")
+```
 
-Add about 2-3 pages here. Across the whole manuscript, you should cite at least 20 peer reviewed articles.
+
+```{r, pathway to read in Phyloseq Object}
+load("output/phyloseq_obj.RData")
+```
+
+```{r, melt Phyloseq with Metadata table}
+# Melt Phyloseq
+melted_obj <- psmelt(phyloseq_obj)
+```
+
+
+# Introduction
+The cattle industry is one of the world’s most important agricultural enterprises. Cattle breeding and production serves multiple purposes globally for traction, meat, and milk products to be consumed by the human populations within regions of interest. The largest percentage of cattle enterprises come from both North and South America, due to the origin of domestication and societal usages. In North America specifically, society developed cattle drives to bring beef to urban regions and serve the developing western world. In today’s society, these products are still extensively used to meet not only agricultural demands for beef or dairy, but also byproduct consumables for home, health, and industry. 
+
+The extensive need for cattle within Northern America is thereby important to economic prosperity making the wellness of the livestock imperative. Bovine respiratory disease is currently the most devastating disease of the United States cattle population with “annual observed incidences ranging from 5 to 44%” of feedlot calves affected (Snowder et al.). From studies done on these incidences is has been determined that grain treatments for feed calves is directly related to the infection of livestock with BRD, meaning economic prosperity from cattle can negatively affect the livestock itself (Snowder et al.).
+
+In order to determine the economic effects of BRD, Garcia et al. looked at carcass traits to determine how both diseases changes the quality of meat within affected steers.  Those animals treated for BRD has lower quality scores for the meat harvested and a reduction in fat thickness meaning the diseased cattle had better consumer product worth and treatment of the animals reduced quality within the cattle industry (Garcia et al.).  Meaning, the industry also has concerning evidence to leave effected animals untreated in order to prevent a loss in meat quality on high valued cattle reservoirs and must forecast how the death of young calves may outweigh the price lost in treatment of the entire stock.
+
+Bovine respiratory disease is caused by the growth of pathogenic bacteria in lung tissue due to stress or viral infection. The syndrome itself arises from multiple factors, which are listed in Lekeu et al. as; age, general condition and immune status, environment, changes in food, temperature and humidity, and the presence of infectious agents (Lekeu et al.). Since, the disease has two potential causes (stress or infection) it leads scientists to test the conditions with which a majority of calves incur the symptoms and the grade of the syndrome that can be treated via vaccination or management practices (Lekeu et al.). BRD is transmitted quickly through cattle stocks via inadequate ventilation from overcrowding and the pathogen alters the animal’s defense mechanism to allow colonization of the lower respiratory tract by bacteria (Fulton et al.). This disease can affect all ages of cattle, but the industry has the highest level of concerns for calves, which have higher rates of mortality from BRD and outbreaks spreading in 60-100% of affected units in tested feedlots, specifically from M. Bovis (Arcangioli et al.).
+
+Since the cattle industry is incredibly important to the economic prosperity of the United State agricultural industry, the wellness of young calves has become an increasingly relevant concern for scientists. With the hopes of studying the bacteria associated in lung and mediastinal lymph node tissues of healthy and BRD-diseased calves, microbiologists hope to divulge the microbiome of the lower respiratory tract in order to conclude which bacteria species may be associated with BRD outbreaks alone (Johnston et al.). 
+Here we utilize NGS 16s amplicon analysis to identify the relevant bacteria within animals sampled using Illumnia MiSeq from Johnston et al. We hypothesize that substantial bacterial community differences in the microbiome will arise within healthy and diseased samples. From the diseased samples, we further assume that the bacteria found will have potential relationships to pathogenic disease spreading seen in other livestock species or relationships with the environment, immune responses, or dietary instabilities. 
+	
+
 
 # Methods
 
