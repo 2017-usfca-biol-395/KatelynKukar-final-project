@@ -158,4 +158,59 @@ rownames(track) <- sample_names
 # produce nice markdown table of progress through the pipeline
 kable(track)
 
+# assigns taxonomy to each sequence variant based on a supplied training set
+# made up of known sequences
+taxa <- assignTaxonomy(sequence_table_nochim,
+                       "data/training/rdp_train_set_16.fa.gz",
+                       multithread = FALSE,
+                       tryRC = TRUE) # also check with seq reverse compliments
 
+# show the results of the taxonomy assignment
+unname(taxa)
+
+# we want to export the cleaned, trimmed, filtered, denoised sequence variants
+# so that we can build a phylogeny - we'll build the phylogeny outside of R
+# but we need the fasta file to do so. We keep the names of each sequence as the
+# sequence itself (which is rather confusing), because that's how DADA2 labels
+# it's columns (e.g. 'species')
+# function taken from https://github.com/benjjneb/dada2/issues/88
+export_taxa_table_and_seqs <- function(sequence_table_nochim,
+                                       file_seqtab,
+                                       file_seqs) {
+  seqtab_t <- as.data.frame(t(sequence_table_nochim)) # transpose to data frame
+  seqs <- row.names(seqtab_t) # extract rownames
+  row.names(seqtab_t) <- seqs # set rownames to sequences
+  outlist <- list(data_loaded = seqtab_t)
+  mctoolsr::export_taxa_table(outlist, file_seqtab) # write out an OTU table
+  seqs <- as.list(seqs)
+  seqinr::write.fasta(seqs, row.names(seqtab_t), file_seqs) # write out fasta
+}
+
+# actually run the function, with the names of the files we want it to create
+# and where to put them
+export_taxa_table_and_seqs(sequence_table_nochim,
+                           "output/sequence_variants_table.txt",
+                           "output/sequence_variants_seqs.fa")
+# Next we want to read in the metadata file so we can add that in too
+# This is not a csv file, so we have to use a slightly different syntax
+# here the `sep = "\t"` tells the function that the data are tab-delimited
+# and the `stringsAsFactors = FALSE` tells it not to assume that things are
+# categorical variables
+metadata_in <- read.table(paste0("data/metadata/",
+                                 "fierer_forensic_hand_mouse_SraRunTable.txt"),
+                          sep = "\t",
+                          header = TRUE,
+                          stringsAsFactors = FALSE,
+                          row.names = 6) # sets sample IDs to row names
+
+# read in the phylogeny, which was created from the fasta exported above
+# in Geneious by aligning the sequences with MAFFT and then building a
+# Maximum-Likelihood tree with RAxML
+tree_in <- read_tree("output/sequence_variants_MAFFT_RAxML.newick")
+
+# Construct phyloseq object (straightforward from dada2 outputs)
+phyloseq_obj <- phyloseq(otu_table(sequence_table_nochim,
+                                   taxa_are_rows = FALSE), # sample-spp matrix
+                         sample_data(metadata_in), # metadata for each sample
+                         tax_table(taxa), # taxonomy for each sequence variant
+                         phy_tree(tree_in)) # phylogeny from sequence variants
