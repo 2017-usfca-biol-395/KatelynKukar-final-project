@@ -104,6 +104,7 @@ dereplicated_forward_reads <- derepFastq(filtered_reads_path)
 # Name the derep-class objects by the sample names
 names(dereplicated_forward_reads) <- sample_names
 
+# adjust parameters for agligent bioanalyzer
 # parameters adjusted based on recommendations for 454 data here:
 # https://benjjneb.github.io/dada2/
 #     faq.html#can-i-use-dada2-with-my-454-or-ion-torrent-data
