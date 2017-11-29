@@ -82,7 +82,7 @@ filtered_output <- filterAndTrim(fwd = filenames_forward_reads,
                                  truncQ = 2, # cut off if quality gets this low
                                  rm.phix = TRUE,
                                  compress = TRUE,
-                                 multithread = FALSE)
+                                 multithread = TRUE)
 # produce nicely-formatted markdown table of read counts
 # before/after trimming
 kable(filtered_output,
@@ -91,7 +91,9 @@ kable(filtered_output,
 
 # this build error models from each of the samples
 errors_forward_reads <- learnErrors(filtered_reads_path,
-                                    multithread = FALSE)
+                                    multithread = TRUE)
+
+save(errors_forward_reads, file = "output/errors_forward_reads.RData")
 
 # quick check to see if error models match data
 # (black lines match black points) and are generally decresing left to right
@@ -104,14 +106,15 @@ dereplicated_forward_reads <- derepFastq(filtered_reads_path)
 # Name the derep-class objects by the sample names
 names(dereplicated_forward_reads) <- sample_names
 
-# adjust parameters for agligent bioanalyzer
+# adjust parameters for mi-seq
 # parameters adjusted based on recommendations for 454 data here:
 # https://benjjneb.github.io/dada2/
 #     faq.html#can-i-use-dada2-with-my-454-or-ion-torrent-data
 dada_forward_reads <- dada(dereplicated_forward_reads,
-                           err = errors_forward_reads,
-                           HOMOPOLYMER_GAP_PENALTY = -1, # reduce penalty bc 454
-                           BAND_SIZE = 32) # performs local alignments bc indels
+                           err = errors_forward_reads)
+
+save(dada_forward_reads, file = "output/dada_forward_reads.RData")
+
 
 # check dada results
 dada_forward_reads
@@ -124,13 +127,13 @@ sequence_table <- makeSequenceTable(dada_forward_reads)
 # histogram of read lengths
 # Quick check to look at distribution of trimmed and denoised sequences
 hist(nchar(getSequences(sequence_table)),
-     main = "Histogram of fingal sequence variant lengths",
+     main = "Histogram of final sequence variant lengths",
      xlab = "Sequence length in bp")
 
 # Check for and remove chimeras
 sequence_table_nochim <- removeBimeraDenovo(sequence_table,
                                             method = "consensus",
-                                            multithread = FALSE,
+                                            multithread = TRUE,
                                             verbose = TRUE)
 
 # What percent of our reads are non-chimeric?
@@ -162,8 +165,10 @@ kable(track)
 # made up of known sequences
 taxa <- assignTaxonomy(sequence_table_nochim,
                        "data/training/rdp_train_set_16.fa.gz",
-                       multithread = FALSE,
+                       multithread = TRUE,
                        tryRC = TRUE) # also check with seq reverse compliments
+
+save(taxa, file = "output/taxa.RData")
 
 # show the results of the taxonomy assignment
 unname(taxa)
@@ -197,20 +202,16 @@ export_taxa_table_and_seqs(sequence_table_nochim,
 # and the `stringsAsFactors = FALSE` tells it not to assume that things are
 # categorical variables
 metadata_in <- read.table(paste0("data/metadata/",
-                                 "fierer_forensic_hand_mouse_SraRunTable.txt"),
+                                 "Bovine_SraRunTable.txt"),
                           sep = "\t",
                           header = TRUE,
                           stringsAsFactors = FALSE,
-                          row.names = 6) # sets sample IDs to row names
-
-# read in the phylogeny, which was created from the fasta exported above
-# in Geneious by aligning the sequences with MAFFT and then building a
-# Maximum-Likelihood tree with RAxML
-tree_in <- read_tree("output/sequence_variants_MAFFT_RAxML.newick")
+                          row.names = 13) # sets sample IDs to row names
 
 # Construct phyloseq object (straightforward from dada2 outputs)
 phyloseq_obj <- phyloseq(otu_table(sequence_table_nochim,
                                    taxa_are_rows = FALSE), # sample-spp matrix
                          sample_data(metadata_in), # metadata for each sample
-                         tax_table(taxa), # taxonomy for each sequence variant
-                         phy_tree(tree_in)) # phylogeny from sequence variants
+                         tax_table(taxa)) # taxonomy for each sequence variant
+
+save(phyloseq_ob, file = "output/phyloseq_obj.RData")
