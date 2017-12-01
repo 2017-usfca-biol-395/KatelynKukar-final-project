@@ -33,9 +33,22 @@ Add about half a page here. In this section instead of first person (I/we), use 
 
 ## Sample origin and sequencing
 
-Add about half a page here. In this section instead of first person (I/we), use the authors of the paper you selected, since you'll just be describing what they did, based on the methods in their paper.
+All sample origining and sequencing was done by Johnston et al. and associated authors to obtain the data utilized throughout this analysis.
+
+###Tissue Collection:
+38 calves, from a variety of different farms, were selected post-mortem and had cranial lung lobe tissue samples removed, with 32 also having mediastinal lymph node tissues collected. BRD was diagnosed by three independent veterinary laboratories by pathologists through bacterial culture, virological and/or bacteriological PCR and histology for indentification. 20 samples of each tissue type were simultaneously collected from control healthy calves. These calves were slaughtered at 2.5 months and had clinical health checks done before slaughter. One gram of lung tissue was extracted from lesions present on the cranial lobe for each sample type (healthy or affected) with 6 immediately frozen at -80 after collection. The remaining samples were placed in RNALater RNA Stabilizing Reagent from Qiagen Inc. and stored based on kit instructions. 
+
+###qPCR from Whole Tissue Samples:
+DNA extraction of these tissues occurred in a BSLII safety cabinet with Qiagen QIAampe Cador Pathogen Mini Kit after pre-treatments with enzymatic tissue digestion (T2) and for difficult to lyse bacteria (B1). Once treated, a small piece of tissue was homogenized and transferred to a microcentrifuge tube with proteinase K. After nucleic acid was extracted RNA was removed using 5ul RNAase A solution for 100ul of purified samples. DNA was purified using Zymo Genomic DNA Clean and Concentrator -10 Kit. A Nanodrop spechtrophotometer was used to quantify the DNA.
+
+###Library Prep:
+One hundred and sixteen 16s rRNA gene amplicon libraries were prepared via PCR amplification of an approximate 467 bp region within the 16sRNA gene in bacteria from 50 ng of each of the extracted and purified DNA samples, using molecular water as a control. This procedure followed guidelines set up by Illumnia 16s metagenomic sequencing library protocol, with modifications based on sample type. PCR was performed with broad spectrum 16s rRNA primers using Kapa HiFi HotStart 2x ReadyMix DNA polymerase (Kapa Biosystems Ltd., London, UK). Libraries were purified with AMPure XP beads and dual indices and Illumnia sequence adaptors from Immunia Nextera XT index kits vs B and C were added to target amplicons of interest in a second PCR repeat. A Nanodrop spectrophotometer measured for quality and purity before barcoded amplicon libraries were combined in equal concentrations into a single pool. Two ul of negative control were additionally added. The library pool was quantified with KAPA SYBR FAST universal qPCR kit with Illumnia Primer Premix and size assessment on an Agilent 2100 Bioanalyser. The library was prepped to MiSeq standards and the sequencing run was conducted on the Illumnia MiSeq using the 500 cycle MiSeq reagent kit (v2) with paired 250 bp reads. The data was submitted as a BigProject to NCBI under accession number SRP080306.
+
+
 
 ## Computational
+
+All computational analyses were conducted by students at the University of San Francisco and Naupaka Zimmerman on data received from Johnston et al. This seqeuncing data was evaluated individually for quality and hypotheses were furthered through statistical analyses to determine more information about the microbiome of BRD affected and healthy calves.
 
 These are the methods you used to do your bioinformatic analyses analyses. Should probably be between 0.5 and 1 pages. At a very minimum should include citations for DADA2 and phyloseq if you are doing an amplicon study, or other citations as appropriate.
 
