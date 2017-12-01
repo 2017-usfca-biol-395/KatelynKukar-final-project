@@ -1,6 +1,6 @@
 ---
-title: "Final Report: Your Title Here"
-author: "Don Francisco"
+title: "Final Report: BRD causing Bacteria's Affects on the Cattle Industry"
+author: "Katelyn B. Kukar"
 date: "November 22, 2017"
 output:
     github_document: default
@@ -33,24 +33,29 @@ Add about half a page here. In this section instead of first person (I/we), use 
 
 ## Sample origin and sequencing
 
-All sample origining and sequencing was done by Johnston et al. and associated authors to obtain the data utilized throughout this analysis.
+All sample origins and sequencing was done by Johnston et al. and associated authors to obtain the data utilized throughout this analysis.
 
 ###Tissue Collection:
-38 calves, from a variety of different farms, were selected post-mortem and had cranial lung lobe tissue samples removed, with 32 also having mediastinal lymph node tissues collected. BRD was diagnosed by three independent veterinary laboratories by pathologists through bacterial culture, virological and/or bacteriological PCR and histology for indentification. 20 samples of each tissue type were simultaneously collected from control healthy calves. These calves were slaughtered at 2.5 months and had clinical health checks done before slaughter. One gram of lung tissue was extracted from lesions present on the cranial lobe for each sample type (healthy or affected) with 6 immediately frozen at -80 after collection. The remaining samples were placed in RNALater RNA Stabilizing Reagent from Qiagen Inc. and stored based on kit instructions. 
+38 calves, from a variety of different farms, were selected post-mortem and had cranial lung lobe tissue samples removed, with 32 also having mediastinal lymph node tissues collected. BRD was diagnosed by three independent veterinary laboratories by pathologists through bacterial culture, virological and/or bacteriological PCR and histology for identification. 20 samples of each tissue type were simultaneously collected from control healthy calves. These calves were slaughtered at 2.5 months and had clinical health checks done before slaughter. One gram of lung tissue was extracted from lesions present on the cranial lobe for each sample type (healthy or affected) with 6 immediately frozen at -80 after collection. The remaining samples were placed in RNALater RNA Stabilizing Reagent from Qiagen Inc. and stored based on kit instructions. 
 
 ###qPCR from Whole Tissue Samples:
-DNA extraction of these tissues occurred in a BSLII safety cabinet with Qiagen QIAampe Cador Pathogen Mini Kit after pre-treatments with enzymatic tissue digestion (T2) and for difficult to lyse bacteria (B1). Once treated, a small piece of tissue was homogenized and transferred to a microcentrifuge tube with proteinase K. After nucleic acid was extracted RNA was removed using 5ul RNAase A solution for 100ul of purified samples. DNA was purified using Zymo Genomic DNA Clean and Concentrator -10 Kit. A Nanodrop spechtrophotometer was used to quantify the DNA.
+DNA extraction of these tissues occurred in a BSLII safety cabinet with Qiagen QIAampe Cador Pathogen Mini Kit after pre-treatments with enzymatic tissue digestion (T2) and for difficult to lyse bacteria (B1). Once treated, a small piece of tissue was homogenized and transferred to a micro centrifuge tube with proteinase K. After nucleic acid was extracted RNA was removed using 5ul RNAase A solution for 100ul of purified samples. DNA was purified using Zymo Genomic DNA Clean and Concentrator -10 Kit. A Nanodrop spechtrophotometer was used to quantify the DNA.
 
 ###Library Prep:
-One hundred and sixteen 16s rRNA gene amplicon libraries were prepared via PCR amplification of an approximate 467 bp region within the 16sRNA gene in bacteria from 50 ng of each of the extracted and purified DNA samples, using molecular water as a control. This procedure followed guidelines set up by Illumnia 16s metagenomic sequencing library protocol, with modifications based on sample type. PCR was performed with broad spectrum 16s rRNA primers using Kapa HiFi HotStart 2x ReadyMix DNA polymerase (Kapa Biosystems Ltd., London, UK). Libraries were purified with AMPure XP beads and dual indices and Illumnia sequence adaptors from Immunia Nextera XT index kits vs B and C were added to target amplicons of interest in a second PCR repeat. A Nanodrop spectrophotometer measured for quality and purity before barcoded amplicon libraries were combined in equal concentrations into a single pool. Two ul of negative control were additionally added. The library pool was quantified with KAPA SYBR FAST universal qPCR kit with Illumnia Primer Premix and size assessment on an Agilent 2100 Bioanalyser. The library was prepped to MiSeq standards and the sequencing run was conducted on the Illumnia MiSeq using the 500 cycle MiSeq reagent kit (v2) with paired 250 bp reads. The data was submitted as a BigProject to NCBI under accession number SRP080306.
-
+One hundred and sixteen 16s rRNA gene amplicon libraries were prepared via PCR amplification of an approximate 467 bp region within the 16sRNA gene in bacteria from 50 ng of each of the extracted and purified DNA samples, using molecular water as a control. This procedure followed guidelines set up by Illumnia 16s meta-genomic sequencing library protocol, with modifications based on sample type. PCR was performed with broad spectrum 16s rRNA primers using Kapa HiFi HotStart 2x ReadyMix DNA polymerase (Kapa Biosystems Ltd., London, UK). Libraries were purified with AMPure XP beads and dual indices and Illumnia sequence adaptors from Illumnia Nextera XT index kits vs B and C were added to target amplicons of interest in a second PCR repeat. A Nanodrop spectrophotometer measured for quality and purity before barcoded amplicon libraries were combined in equal concentrations into a single pool. Two ul of negative control were additionally added. The library pool was quantified with KAPA SYBR FAST universal qPCR kit with Illumnia Primer Premix and size assessment on an Agilent 2100 Bioanalyser. The library was prepped to MiSeq standards and the sequencing run was conducted on the Illumnia MiSeq using the 500 cycle MiSeq reagent kit (v2) with paired 250 bp reads. The data was submitted as a BigProject to NCBI under accession number SRP080306.
 
 
 ## Computational
 
-All computational analyses were conducted by students at the University of San Francisco and Naupaka Zimmerman on data received from Johnston et al. This seqeuncing data was evaluated individually for quality and hypotheses were furthered through statistical analyses to determine more information about the microbiome of BRD affected and healthy calves.
+All computational analyses were conducted by students at the University of San Francisco and Naupaka Zimmerman on data received from Johnston et al. This sequencing data was evaluated individually for quality and hypotheses were furthered through statistical analyses to determine more information about the microbiome of BRD affected and healthy calves.
 
-These are the methods you used to do your bioinformatic analyses analyses. Should probably be between 0.5 and 1 pages. At a very minimum should include citations for DADA2 and phyloseq if you are doing an amplicon study, or other citations as appropriate.
+The packages required for analysis include: dplyr, tidyr, knitr, ggplot2, dada2, seqinr, mctoolsr, phyloseq, and RcolorBrewer. These can be downloaded through R our through their corresponding web links: https://benjjneb.github.io/dada2/dada-installation.html for dada2 to clean and analyze data, https://github.com/leffj/mctoolsr for mctoolsr.
+
+The BioProject, found under the listed NCBI accession number, needs to have the SRA table initially downloaded using the appropriate Toolkit. A script needs to be run to download the table and also extrapolate all run data from the table as fastaq files with associated quality scores. A fastq dump also is run with a splitting file code to split the forward and reverse reads into forward reads only to be analyzed within a dada pipeline as needed fast files.   
+
+The pipeline directly followed is DADA2 with information at https://benjjneb.github.io/dada2/tutorial.html. First the path for the data needs to be established with all fastq file sorted by the indicated run number for all samples. Once sorted graphs of the quality scores can be plotted with the plot quality profile function to determine the cut off point for all sequences. The files are filtered and placed into a filtered region of the folder to use in analysis. The sequences are then trimmed following dada pipeline constraints specific to Illumnia MiSeq parameters, which include maximum length required and errors allowed (https://benjjneb.github.io/dada2/). A markdown table is produced to see the runs in and out before and after trimming to indicate the level of processing done on each file type. Error models are built to establish a trend of errors within the entirety of the project based on trimming constraints with an expected level of errors to make statistically viable figures; plot errors can visualize these trends. Removal of replicated sequences is an important pipeline quality check to ensure no replications skew data later in the pipeline. Dada is then run on all forward reads with MiSeq parameters to look at homopolymers and potential sequencing deficiencies (https://benjjneb.github.io/dada2/) with a post check of the run to evaluate sequences. A site by species matrix is produced to look at the sequence length, coupled with a histogram to see trimming parameters. We see all sequences are trimmed to the same length. Chimeras are removed to aid in the alignment of the sequences and normalize samples. A table can showcase how many sequences are left at each step of the pipeline to track the level of trimming, alignment, and removal of error using the track function within the dada pipeline. Taxonomies are assigned based on documented sequences through the taxa function, and exported as a taxa table for community analysis of known samples. Meta data is merged with taxonomies to bring in all known data about sample origin and sequencing processes from all stages of research on the healthy and affected bovine samples. This information is gathered in a phyloseq object and melted to create a usable data table with known information. 
+
+In all resulting statistical analyses the phyloseq object and melted object are applied to use ggplot2 in making tables and figures. The pruning function removes Not Applicable data in some cases.
 
 # Results
 
@@ -136,7 +141,7 @@ plot_richness(pruned_phyloseq,
   theme_bw() +
   labs(title = "Healthy vs. Affected Diversity Metric")
 ```
-Figure 3 outlines a Shannon Diversity Metric to look at the diversity of the samples from healty and affected calves.
+Figure 3 outlines a Shannon Diversity Metric to look at the diversity of the samples from healthy and affected calves.
 
 **Figure 4**:
 ```{r, Ordination}
@@ -152,7 +157,7 @@ p1 <- plot_ordination(pruned_phyloseq,
                      print(p1)
 ```
 
-Figure 4: The observed Ordination, which distinguishes healthy and BRD affected calves, shows a level of relatedness for the healthy calf microbiome, but a large spread witin affected calf microbiome.
+Figure 4: The observed Ordination, which distinguishes healthy and BRD affected calves, shows a level of relatedness for the healthy calf microbiome, but a large spread within affected calf microbiome.
 
 ```{r, prune phyloseq for Phylum}
 pruned_phyloseq <- subset(pruned_phyloseq, )
