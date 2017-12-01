@@ -60,7 +60,7 @@ In all resulting statistical analyses the phyloseq object and melted object are 
 # Results
 
 
-```{r, add in all libraries}
+```{r, add in all libraries, echo=FALSE}
 library("dplyr")
 library("tidyr")
 library("knitr")
@@ -74,16 +74,16 @@ library("RColorBrewer")
 ```
 
 
-```{r, pathway to read in Phyloseq Object}
+```{r, pathway to read in Phyloseq Object, echo=FALSE}
 load("output/phyloseq_obj.RData")
 ```
 
-```{r, melt Phyloseq with Metadata table}
+```{r, melt Phyloseq with Metadata table, echo=FALSE}
 # Melt Phyloseq
 melted_obj <- psmelt(phyloseq_obj)
 ```
 
-```{r}
+```{r, prune phyloseq, echo=FALSE}
 # apply pruned data set
 pruned_phyloseq <- subset_samples(phyloseq_obj)
 ```
@@ -102,7 +102,7 @@ pruned_phyloseq <- subset_samples(phyloseq_obj)
 ```
 
 **Figure 1:**
-```{r, Abundance of Bacteria Found in Sample Types}
+```{r, Abundance of Bacteria Found in Sample Types, echo=FALSE}
 melted_obj %>%
   ggplot(
        aes(x = BRD_affected_or_healthy_s,
@@ -118,7 +118,7 @@ melted_obj %>%
 Figure 1 represents the abundance of bacteria found within the healthy or BRD affected calves post-mortem for both tissue types sampled. From this figure we can see a similar amount of bacteria was present in both types.
 
 **Figure 2**:
-```{r, Richness of Bacteria}
+```{r, Richness of Bacteria, echo=FALSE}
 #abundance, boxplot, table of values
 plot_richness(pruned_phyloseq,
               x = "BRD_affected_or_healthy_s",
@@ -131,7 +131,7 @@ plot_richness(pruned_phyloseq,
 Figure 2 represents the richness of bacterial samples found within healthy and affected calves.
 
 **Figure 3**:
-```{r, Shannon Diversity Metric}
+```{r, Shannon Diversity Metric, echo=FALSE}
 # alpha diversity metrics
 plot_richness(pruned_phyloseq,
               x = "BRD_affected_or_healthy_s",
@@ -144,7 +144,7 @@ plot_richness(pruned_phyloseq,
 Figure 3 outlines a Shannon Diversity Metric to look at the diversity of the samples from healthy and affected calves.
 
 **Figure 4**:
-```{r, Ordination}
+```{r, Ordination, echo=FALSE}
 # Ordination of Healthy and Affected species distribution
 set.seed(28)
 pruned_ord <- ordinate(pruned_phyloseq, "NMDS", "bray")
@@ -159,14 +159,9 @@ p1 <- plot_ordination(pruned_phyloseq,
 
 Figure 4: The observed Ordination, which distinguishes healthy and BRD affected calves, shows a level of relatedness for the healthy calf microbiome, but a large spread within affected calf microbiome.
 
-```{r, prune phyloseq for Phylum}
-pruned_phyloseq <- subset(pruned_phyloseq, )
-
-```
-
 
 **Table**:
-```{r, Phylum Table}
+```{r, Phylum Table, echo=FALSE}
 # Table to look at Phylums 
 melted_obj %>%
   filter(!is.na(Phylum)) %>%
@@ -182,7 +177,7 @@ Figure 5 looks at the distribution of Phylums throughout the samples tested to s
 
 
 **Table:**
-```{r, table to see counts of certain genus}
+```{r, Genus Table, echo=FALSE}
 # want a table to look att he number of times a certain genus occurs in both healthy and affected individuals
 melted_obj %>%
   filter(!is.na(Genus)) %>%
