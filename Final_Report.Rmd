@@ -1,6 +1,6 @@
 ---
 title: "BRD Bacterial Affects on the Cattle Industry"
-author: "Katelyn B. Kukar"
+author: "Katelyn B. Kukar, Naupaka Zimmerman"
 date: "November 22, 2017"
 output:
     github_document: default
@@ -22,7 +22,6 @@ Bovine respiratory disease is caused by the growth of pathogenic bacteria in lun
 
 The cattle industry is incredibly important to the economic prosperity of the United State agricultural industry, with the wellness of young calves becoming an increasingly relevant concern for scientists. With the hopes of studying the bacteria associated in lung and mediastinal lymph node tissues of healthy and BRD-diseased calves, microbiologists hope to divulge the microbiome of the lower respiratory tract in order to conclude which bacteria species may be associated with BRD outbreaks alone [@kelly2017illumina]. 
 Here we utilize NGS 16s amplicon analysis to identify the relevant changes in bacterial community composition, within animals sampled, using Illumnia MiSeq from Johnston et al. We hypothesize that substantial bacterial community differences in the microbiome will arise within healthy and diseased samples. We predict rises in stress level will potentially cause lower immunity levels resulting in an increase in abundance and richness for affected cattle, when compared to baseline controls. From the diseased samples, we further assume that the bacterial genuses found with the most significant changes in abundance will have potential relationships to pathogenic disease spreading seen in other livestock species or relationships with the environment, immune responses, or dietary instabilities. These found genera may also correlate to additional studies on Bovine Respiratory Disease as supporting evidence for a singular bacterial component of interest.
-	
 
 
 # Methods
@@ -31,13 +30,13 @@ Here we utilize NGS 16s amplicon analysis to identify the relevant changes in ba
 
 All sample origins and sequencing was done by Johnston et al. and associated authors to obtain the data utilized throughout this analysis.
 
-###Tissue Collection:
+### Tissue Collection:
 38 calves, from a variety of different farms, were selected post-mortem and had cranial lung lobe tissue samples removed, with 32 also having mediastinal lymph node tissues collected. BRD was diagnosed by three independent veterinary laboratories by pathologists through bacterial culture, virological and/or bacteriological PCR and histology for identification [@kelly2017illumina]. 20 samples of each tissue type were simultaneously collected from control healthy calves. These calves were slaughtered at 2.5 months and had clinical health checks done before slaughter [@kelly2017illumina]. One gram of lung tissue was extracted from lesions present on the cranial lobe for each sample type (healthy or affected) with 6 immediately frozen at -80 after collection [@kelly2017illumina]. The remaining samples were placed in RNALater RNA Stabilizing Reagent from Qiagen Inc. and stored based on kit instructions [@kelly2017illumina]. 
 
-###qPCR from Whole Tissue Samples:
+### qPCR from Whole Tissue Samples:
 DNA extraction of these tissues occurred in a BSLII safety cabinet with Qiagen QIAampe Cador Pathogen Mini Kit after pre-treatments with enzymatic tissue digestion (T2) and for difficult to lyse bacteria (B1) [@kelly2017illumina]. Once treated, a small piece of tissue was homogenized and transferred to a micro centrifuge tube with proteinase K [@kelly2017illumina]. After nucleic acid was extracted RNA was removed using 5ul RNAase A solution for 100ul of purified samples. DNA was purified using Zymo Genomic DNA Clean and Concentrator -10 Kit[@kelly2017illumina]. A Nanodrop spechtrophotometer was used to quantify the DNA [@kelly2017illumina].
 
-###Library Prep:
+### Library Prep:
 One hundred and sixteen 16s rRNA gene amplicon libraries were prepared via PCR amplification of an approximate 467 bp region within the 16sRNA gene in bacteria from 50 ng of each of the extracted and purified DNA samples, using molecular water as a control [@kelly2017illumina]. This procedure followed guidelines set up by Illumnia 16s meta-genomic sequencing library protocol, with modifications based on sample type [@kelly2017illumina]. PCR was performed with broad spectrum 16s rRNA primers using Kapa HiFi HotStart 2x ReadyMix DNA polymerase (Kapa Biosystems Ltd., London, UK) [@kelly2017illumina]. Libraries were purified with AMPure XP beads and dual indices and Illumnia sequence adaptors from Illumnia Nextera XT index kits vs B and C were added to target amplicons of interest in a second PCR repeat [@kelly2017illumina]. A Nanodrop spectrophotometer measured for quality and purity before barcoded amplicon libraries were combined in equal concentrations into a single pool. Two ul of negative control were additionally added [@kelly2017illumina]. The library pool was quantified with KAPA SYBR FAST universal qPCR kit with Illumnia Primer Premix and size assessment on an Agilent 2100 Bioanalyser [@kelly2017illumina]. The library was prepped to MiSeq standards and the sequencing run was conducted on the Illumnia MiSeq using the 500 cycle MiSeq reagent kit (v2) with paired 250 bp reads [@kelly2017illumina]. The data was submitted as a BigProject to NCBI under accession number SRP080306 [@kelly2017illumina].
 
 
@@ -148,19 +147,37 @@ Ordination can be used as a exploratory measure for data clustering of similar a
 set.seed(28)
 pruned_ord <- ordinate(pruned_phyloseq, "NMDS", "bray")
 # plot ordination without NA
-p1 <- plot_ordination(pruned_phyloseq,
+p1 <- phyloseq::plot_ordination(pruned_phyloseq,
                      pruned_ord,
                      type = "samples",
                      color = "BRD_affected_or_healthy_s",
-                     title = "Ordination of Healthy and Affected Sequences")
-                     print(p1)
+                     title = "Ordination of Healthy and Affected Sequences",
+                     label = "Sample_Name_s")
+p1
 ```
 
 Figure 4: The observed Ordination, which distinguishes healthy and BRD affected calves, shows a level of relatedness for the healthy calf microbiome, but a large spread within affected calf microbiome. However, some overlap is denoted showing common microbiota for both sample types.
 
+```{r, Phlyum Comparison of Affected and Non}
+# filter the sample name and see the phylum make up
+
+melted_obj %>%
+  filter(Sample_Name_s %in% c("31LNBeef", "4LBeef", "2LHF", "19LHF")) %>%
+  group_by(Sample_Name_s, Phylum) %>%
+  summarise(mean_abund = mean(Abundance)) %>%
+  ggplot(aes(x = Sample_Name_s,
+             y = mean_abund,
+             fill = Phylum)) +
+    geom_col()
+           
+           
+           
+```
+
+
 ## Analysis of Bacterial Types
 
-Grouping the number of bacteria seen within samples with a known bacterial definition can lead to information in regard to the most prevelant Phylum and Genus seen in healthy and affected individuals. These levels of abundance can be used to visualize colony growth and prosperity within calf tissues for asymtamatic (baseline) versus symptamatic calves.
+Grouping the number of bacteria seen within samples with a known bacterial definition can lead to information in regard to the most prevelant Phyla and Genera seen in healthy and affected individuals. These levels of abundance can be used to visualize colony growth and prosperity within calf tissues for asymtamatic (baseline) versus symptamatic calves.
 
 **Table 1**:
 ```{r, Phylum Table, echo=FALSE}
@@ -176,7 +193,7 @@ melted_obj %>%
 
 ```
 
-Table 1 looks at the distribution of Phylums throughout the samples tested to see the different types of bacteria represented in the respiratory tract of the calves. 57.14% more bacteria is seen in affected calves for all Phylums observed.
+Table 1 looks at the distribution of Phyla throughout the samples tested to see the different types of bacteria represented in the respiratory tract of the calves. 57.14% more bacteria is seen in affected calves for all Phyla observed.
 
 
 **Table 2:**
@@ -193,7 +210,7 @@ melted_obj %>%
   kable()
 ```
 
-Table 2 looks at the most relevant genera for affected versus healthy tissue types. 57.14% more bacteria for each type is visualized in affected samples than healthy samples for all tested genuses.
+Table 2 looks at the most relevant genera for affected versus healthy tissue types. 57.14% more bacteria for each type is visualized in affected samples than healthy samples for all tested genera.
 
 
 
@@ -201,25 +218,25 @@ Table 2 looks at the most relevant genera for affected versus healthy tissue typ
 
 Bovine Respiratory Disease is currently the largest threat to the cattle industry due to the high fatality rate of young calves. Death of young calves leads to sever economic losses from to mortalities, cost of treatments, reduced feed efficiency, and lower carcass quality as denoted by Garcia et al. These losses create less profit for feedlot owners and cattle breeders who by default cut costs by reducing the quality of the food they feed healthy cows, and the quality of enclosures. Though profits are imperative to the agricultural business these quality cuts increase the spread of BRD by lowering the immunity of cattle via poor nutritional diets and optimizing the conditions for the opportunistic bacteria to invade via co-infection with viruses or commingling of animals from different sources (Holman et al.). Poor ventilation within feedlots heightens the stress of the animals releasing adrenaline into the system to increase cortisol levels, which in turn reduce the immunity within the animal to create adrenal fatigue (Snowder et al.).
 
-	Within this paper we evaluate the differences within microbiota found in two lung tissues forms of healthy and known BRD affected calves. We predict that a community analysis will reveal significant differences within the richness and abundance of both sample types to yield evidence to support a decrease in immunity from known, heightened stress conditions. We further predict that the resulting genera deduced from OTU taxonomical analysis will correlate with immune deficiencies, environmental pressures, or dietary instabilities previously documented.
+Within this paper we evaluate the differences within microbiota found in two lung tissues forms of healthy and known BRD affected calves. We predict that a community analysis will reveal significant differences within the richness and abundance of both sample types to yield evidence to support a decrease in immunity from known, heightened stress conditions. We further predict that the resulting genera deduced from OTU taxonomical analysis will correlate with immune deficiencies, environmental pressures, or dietary instabilities previously documented.
 	
 Within Figure 1 we decipher the relationship that bacterial abundance has with the samples tested. We deduce that overall bacterial amounts are consistent between both affected and healthy bovine tissue samples. We can conclude that these results indicate that only a certain amount of bacteria can occupy each particular niche at a given time which is consistent with most environmental density curves, since the tissue offers a limited amount of resources to the bacteria meaning competition for these resources is dependent on the selection mechanisms for each bacterial type. If this is true then the community is k-selected and all bacteria forms are utilizing the max amount of resources from each tissue type either affected or healthy. We can hypothesize that the disease-causing bacteria may be more rich than that of the healthy bacteria in affected tissues, causing a decrease in potentially profitable bacterial types that increase the immunity within the cranial lung lobe tissue and mediastinal lymph node tissues collected.
 	
-	To test if the richness is variable between healthy and affected samples Figure 2 looks at the overall spread of each unique species within the tissue samples. This richness plot shows that BRD affected samples have an increased spread of richness, with many outliers compared to healthy control variants. Though the mean richness for healthy calves is higher, the spread for affected calves indicates many species are inhabiting a similar niche. Figure 2 helps support the primary claim that though the total abundance is similar among populations, immune deficiency occurs because the disease-causing bacteria are inhabiting the same niche environment as bacteria in healthy samples causing increased selection pressures that allow the diseased bacteria to outcompete the endogenous species. 
+To test if the richness is variable between healthy and affected samples Figure 2 looks at the overall spread of each unique species within the tissue samples. This richness plot shows that BRD affected samples have an increased spread of richness, with many outliers compared to healthy control variants. Though the mean richness for healthy calves is higher, the spread for affected calves indicates many species are inhabiting a similar niche. Figure 2 helps support the primary claim that though the total abundance is similar among populations, immune deficiency occurs because the disease-causing bacteria are inhabiting the same niche environment as bacteria in healthy samples causing increased selection pressures that allow the diseased bacteria to outcompete the endogenous species. 
 	
-By, understanding that the affected calves have a greater richness of bacteria within their tissue samples information about immunity can be gathered. Low levels of immunity due to high stress conditions can cause less energy to be put towards creating proteins to fight infection and more energy towards the production of cortisol. If high stress conditions are being create because of cattle transfer and crowding calves may increase the amount of cortisol their body is producing to prevent being trampled by other cows or to maintain a state of alert during long trucking endeavors. A secondary hypothesis to bovine respiratory disease is viral infection which could be caused by overcrowding in feed lots. If cattle were placed in area of low sanitation an increase in bacterial types could accumulate in tissues sampled from manure or co-infection from differing cattle sites. Both of these scenarios would lead to an increase in bacterial richness when compared to healthy calf tissues (Edwards et al.).
+By, understanding that the affected calves have a greater richness of bacteria within their tissue samples information about immunity can be gathered. Low levels of immunity due to high stress conditions can cause less energy to be put towards creating proteins to fight infection and more energy towards the production of cortisol. If high stress conditions are being create because of cattle transfer and crowding calves may increase the amount of cortisol their body is producing to prevent being trampled by other cows or to maintain a state of alert during long trucking endeavors. A secondary hypothesis to bovine respiratory disease is viral infection which could be caused by overcrowding in feed lots. If cattle were placed in area of low sanitation an increase in bacterial types could accumulate in tissues sampled from manure or co-infection from differing cattle sites. Both of these scenarios would lead to an increase in bacterial richness when compared to healthy calf tissues [@edwards2010control].
 
-	Diversity measures the relative sustainability of a certain environment for its inhabitants by looking at richness and evenness. If some species are exponentially taking over the habitat of another evenness is reduced. Figure 3 shows a higher mean diversity level for healthy calves yielding support for a more sustainable environment within healthy tissue types. This environment is more sustainable since there is a balance within the microbiome that resides there, unlike the large spread of data seen for BRD affected samples. The large spread denotes high levels of diversity variability which is indicative of dying bacterial species and exponentially growing species. It is plausible that as BRD symptoms increase so does the relative amounts of harmful bacteria within the respiratory epithelium.
+Diversity measures the relative sustainability of a certain environment for its inhabitants by looking at richness and evenness. If some species are exponentially taking over the habitat of another evenness is reduced. Figure 3 shows a higher mean diversity level for healthy calves yielding support for a more sustainable environment within healthy tissue types. This environment is more sustainable since there is a balance within the microbiome that resides there, unlike the large spread of data seen for BRD affected samples. The large spread denotes high levels of diversity variability which is indicative of dying bacterial species and exponentially growing species. It is plausible that as BRD symptoms increase so does the relative amounts of harmful bacteria within the respiratory epithelium.
 	
-	Figure 4 represents an Ordination to directly overlay the levels of community analyses for comparing the healthy and affected tissue types sampled. The clustering of the healthy samples is indicative of similar bacterial types with low levels of diversity among each, while the large spread of affected samples indicates huge amounts of variety within the community. This variation within the community is most likely from decreased immune levels which could be from low quality food reducing the nutritional needs of calves, especially in environments of high density cohabitation or fecal matter. 
+Ordination to directly overlay the levels of community analyses for comparing the healthy and affected tissue types sampled, as seen in Figure 4. The clustering of the healthy samples is indicative of similar bacterial types with low levels of diversity among each, while the large spread of affected samples indicates huge amounts of variety within the community. This variation within the community is most likely from decreased immune levels which could be from low quality food reducing the nutritional needs of calves, especially in environments of high density cohabitation or fecal matter. 
 	
-	Though understanding the microbiome of the calf samples at a community level is important to developing hypotheses about the relative state of the immune system, understanding the types of bacteria residing in the tissue can also determine which bacterial forms are exponentially growing and which are decreasing. Table 1 indicates abundance information regarding Phylum to show an overall increase of 54.17% of the bacteria in all Phylum tested. The increase in all Phylum’s could be due to the spread of both beneficial and harmful bacteria during immune responses to growth. This arms race could have led to a reciprocal amount of action from both types of bacteria that remains constant in healthy, control tissues. The same trend is visualized within the Genera analysis, where all affected types increase by more than 50% against healthy samples.
+Though understanding the microbiome of the calf samples at a community level is important to developing hypotheses about the relative state of the immune system, understanding the types of bacteria residing in the tissue can also determine which bacterial forms are exponentially growing and which are decreasing. Table 1 indicates abundance information regarding Phylum to show an overall increase of 54.17% of the bacteria in all Phyla tested. The increase in all Phylum’s could be due to the spread of both beneficial and harmful bacteria during immune responses to growth. This arms race could have led to a reciprocal amount of action from both types of bacteria that remains constant in healthy, control tissues. The same trend is visualized within the Genera analysis, where all affected types increase by more than 50% against healthy samples.
 	
-The most prevelant Phylum for both healthy and affected tissue is **Firmicutes**. **Firmicutes** is related to the immune system via...
+The most prevelant Phyla for both healthy and affected tissue is **Firmicutes**. **Firmicutes** is related to the immune system via...
 
 The most prevelant Genera for both healthy and affected tissue is **Protovella**. **Protovella** influences the immune system by having direct relationships with diet. 
 	
-Overall, the immune system is the body’s defense against infectious organisms and microorganisms that could potentially harm imperative tissues or cells during their colonization. When the immune sstem recognizes foregin incaders it works to remove them from the environment using a network of cells, tissues, and organs; specifically leukocytes (Jamieson et al).. However, when overwhelmed with multiple invaders during co-infection the body becomes overwhelmed and will focus reservoirs of energy onto viral infections over bacterial colonization events. In this way BRD can easily infect young calves that are simultaneously fighting off more sever, short-term illnesses. When the viral infection is depleted usually the bacterial one has grown under asymptomatic expression until it can fully infect host tissue (Edward et al.) BRD from stress is also plausible since stress induced immunodeficiency is common even in human hosts. Chronic stress is seen when cortisol is circulating in the blood for long period of time to cause digestive issues and high blood pressure. Stress specifically targets the immune system by creating chronic inflammatory conditions and thereby increasing the production of cytokines to allow and autoimmune attack on healthy cells, leaving bacterial hosts able to colonize tissues without leukocyte or phagocytic removal (Reiche et al.).
+Overall, the immune system is the body’s defense against infectious organisms and microorganisms that could potentially harm imperative tissues or cells during their colonization. When the immune sstem recognizes foregin incaders it works to remove them from the environment using a network of cells, tissues, and organs; specifically leukocytes [@jamieson2013role]. However, when overwhelmed with multiple invaders during co-infection the body becomes overwhelmed and will focus reservoirs of energy onto viral infections over bacterial colonization events. In this way BRD can easily infect young calves that are simultaneously fighting off more sever, short-term illnesses. When the viral infection is depleted usually the bacterial one has grown under asymptomatic expression until it can fully infect host tissue [@edwards2010control]. BRD from stress is also plausible since stress induced immunodeficiency is common even in human hosts. Chronic stress is seen when cortisol is circulating in the blood for long period of time to cause digestive issues and high blood pressure. Stress specifically targets the immune system by creating chronic inflammatory conditions and thereby increasing the production of cytokines to allow and autoimmune attack on healthy cells, leaving bacterial hosts able to colonize tissues without leukocyte or phagocytic removal [@reiche2004stress].
 	
 Both of these cases are plausible given known bovine habitat situations and both can be fixed to increase the economic prosperity of the cattle industry by investing in better transportation and open pasture lifestyles. If the cattle industry pushes for an organic transition to allow grazing with supplemental vitamins the immunity of many calves would remain unaffected by BRD induced by stress or coinfection. 
 	
