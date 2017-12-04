@@ -153,7 +153,6 @@ p1 <- plot_ordination(pruned_phyloseq,
                      type = "samples",
                      color = "BRD_affected_or_healthy_s",
                      title = "Ordination of Healthy and Affected Sequences")
-                     label = "Genus"
                      print(p1)
 ```
 
@@ -165,7 +164,7 @@ Grouping the number of bacteria seen within samples with a known bacterial defin
 
 **Table 1**:
 ```{r, Phylum Table, echo=FALSE}
-# Table to look at Phylums 
+# Table to look at Phylums
 melted_obj %>%
   filter(!is.na(Phylum)) %>%
   group_by(BRD_affected_or_healthy_s, Phylum) %>%
@@ -182,7 +181,7 @@ Table 1 looks at the distribution of Phylums throughout the samples tested to se
 
 **Table 2:**
 ```{r, Genus Table, echo=FALSE}
-# want a table to look att he number of times a certain genus occurs in both healthy and affected individuals
+# Genera abundance 
 melted_obj %>%
   filter(!is.na(Genus)) %>%
   group_by(BRD_affected_or_healthy_s, Genus) %>%
