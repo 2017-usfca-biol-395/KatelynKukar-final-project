@@ -1,4 +1,4 @@
-Final Report: BRD causing Bacteria's Affects on the Cattle Industry
+BRD Bacterial Affects on the Cattle Industry
 ================
 Katelyn B. Kukar
 November 22, 2017
@@ -57,9 +57,9 @@ In all resulting statistical analyses the phyloseq object and melted object are 
 Results
 =======
 
-``` r
-library("dplyr")
-```
+Sequencing Data was compiled into a primary phyloseq object to be utilized within R for comparative analyses. The data will potentially give rise to information regarding the community aspects of the microbiome within the Bovine Respiratory Epithelium from lung and mediastinal lymph node tissues.
+
+Abundance measures the amount if a population of bacteria within a sample and can show the relative size of a colony residing in a tissue. The more abundant a particular colony the more probable that the colony type is thriving in the environment set forth. Analyzing the amount of bacteria in healthy and affected tissues can lead to information regarding the ability for bacteria to thrive within and calves.
 
     ## 
     ## Attaching package: 'dplyr'
@@ -72,19 +72,7 @@ library("dplyr")
     ## 
     ##     intersect, setdiff, setequal, union
 
-``` r
-library("tidyr")
-library("knitr")
-library("ggplot2")
-library("citr")
-library("dada2")
-```
-
     ## Loading required package: Rcpp
-
-``` r
-library("seqinr")
-```
 
     ## 
     ## Attaching package: 'seqinr'
@@ -93,16 +81,8 @@ library("seqinr")
     ## 
     ##     count
 
-``` r
-library("mctoolsr")
-```
-
     ## You're using mctoolsr (v.0.1.1.1). Direct inquiries to:
     ## 'https://github.com/leffj/mctoolsr'
-
-``` r
-library("phyloseq")
-```
 
     ## 
     ## Attaching package: 'phyloseq'
@@ -111,53 +91,13 @@ library("phyloseq")
     ## 
     ##     plot_ordination
 
-``` r
-library("RColorBrewer")
-```
-
-``` r
-load("output/phyloseq_obj.RData")
-```
-
-``` r
-# Melt Phyloseq
-melted_obj <- psmelt(phyloseq_obj)
-```
-
-``` r
-# apply pruned data set
-pruned_phyloseq <- subset_samples(phyloseq_obj)
-```
-
 Subsections are ok in the results section too
 ---------------------------------------------
 
 Tables of interest
 ==================
 
-``` r
-# Add code chunks as needed for your analyses
-# For most analyses, I would recommend splitting the
-# intensive computational part into a seperate R script file
-# and then just load your libraries and the data object here
-# using the `load()` function. Ask me for clarification if this is
-# unclear.
-```
-
 **Figure 1:**
-
-``` r
-melted_obj %>%
-  ggplot(
-       aes(x = BRD_affected_or_healthy_s,
-           y = Abundance)) +
-  geom_boxplot(alpha = 1) +
-  ggtitle("Abundance for Healthy vs. Diseased Calves") +
-  xlab("Disease Status") +
-  ylab("Abundance") +
-  theme_light() +
-  scale_y_log10()
-```
 
     ## Warning: Transformation introduced infinite values in continuous y-axis
 
@@ -167,18 +107,9 @@ melted_obj %>%
 
 Figure 1 represents the abundance of bacteria found within the healthy or BRD affected calves post-mortem for both tissue types sampled. From this figure we can see a similar amount of bacteria was present in both types.
 
-**Figure 2**:
+Richness is the quantification of different types of species living within a similar niche environment. Looking at the richness within affected and healthy bovine tissue samples will determine if a singular type of bacteria is present or many. If many different bacterial types make up the microbiome many different bacterias will be utilizing the nutritional resources provided by the calve's tissues.
 
-``` r
-#abundance, boxplot, table of values
-plot_richness(pruned_phyloseq,
-              x = "BRD_affected_or_healthy_s",
-              measures = c("Observed")) +
- xlab("Sample origin") +
- geom_boxplot(width = 0.2) +
- theme_bw() +
- labs(title = "Healthy vs. Affected Richness Metric")
-```
+**Figure 2**:
 
     ## Warning in estimate_richness(physeq, split = TRUE, measures = measures): The data you have provided does not have
     ## any singletons. This is highly suspicious. Results of richness
@@ -189,18 +120,9 @@ plot_richness(pruned_phyloseq,
 
 ![](Final_Report_files/figure-markdown_github-ascii_identifiers/Richness%20of%20Bacteria-1.png) Figure 2 represents the richness of bacterial samples found within healthy and affected calves.
 
-**Figure 3**:
+Shannon Diversity works to combine both the abudance and evenness of a certain community sample set. Shannon Diversity applies a true diversity algorithm that refers to the number of equally abundant types needed for the average proportional abundance of the types to equal that observed in a data set where all types may not actually be equal. It utilizes H to assume the porportion of each species type is indicative of their importance ot diversity or the overall biomass of the community. Within bovine tissues the diversity metric will provide insight on how different the microbiomes for healthy and affected calves are. Evenness within the niche can further determine if each species of bacteria represents a similar abundance throughout the tissue or if one species has a higher selection coefficient to compete for resources. In BRD affected calves one species of bacteria may be more prevelant in acquirng nutrition from the tissues it resides in leaving to faster death during bacterial colony expansion. Evenness works as a diversity index to measure the biodiversity in a reference community to see how equal each species variant is numerically.
 
-``` r
-# alpha diversity metrics
-plot_richness(pruned_phyloseq,
-              x = "BRD_affected_or_healthy_s",
-              measures = c("Shannon")) +
-  xlab("Sample origin") +
-  geom_boxplot(width = 0.2) +
-  theme_bw() +
-  labs(title = "Healthy vs. Affected Diversity Metric")
-```
+**Figure 3**:
 
     ## Warning in estimate_richness(physeq, split = TRUE, measures = measures): The data you have provided does not have
     ## any singletons. This is highly suspicious. Results of richness
@@ -211,13 +133,9 @@ plot_richness(pruned_phyloseq,
 
 ![](Final_Report_files/figure-markdown_github-ascii_identifiers/Shannon%20Diversity%20Metric-1.png) Figure 3 outlines a Shannon Diversity Metric to look at the diversity of the samples from healthy and affected calves.
 
-**Figure 4**:
+Ordination can be used as a exploratory measure for data clustering of similar and different multivariate types. Ordinations plot relationships between community microbiomes absed on richness and diversity metrics. The overlay of both population types can sowcase outliers in microbiome populations for affected samples and remove common microbiota within both to see the spread of the total community.
 
-``` r
-# Ordination of Healthy and Affected species distribution
-set.seed(28)
-pruned_ord <- ordinate(pruned_phyloseq, "NMDS", "bray")
-```
+**Figure 4**:
 
     ## Square root transformation
     ## Wisconsin double standardization
@@ -256,33 +174,23 @@ pruned_ord <- ordinate(pruned_phyloseq, "NMDS", "bray")
     ## Warning in postMDS(out$points, dis, plot = max(0, plot - 1), ...): skipping
     ## half-change scaling: too few points below threshold
 
-``` r
-# plot ordination without NA
-p1 <- plot_ordination(pruned_phyloseq,
-                     pruned_ord,
-                     type = "samples",
-                     color = "BRD_affected_or_healthy_s",
-                     title = "Ordination of Healthy and Affected Sequences")
-                     print(p1)
-```
-
 ![](Final_Report_files/figure-markdown_github-ascii_identifiers/Ordination-1.png)
 
-Figure 4: The observed Ordination, which distinguishes healthy and BRD affected calves, shows a level of relatedness for the healthy calf microbiome, but a large spread within affected calf microbiome.
+Figure 4: The observed Ordination, which distinguishes healthy and BRD affected calves, shows a level of relatedness for the healthy calf microbiome, but a large spread within affected calf microbiome. However, some overlap is denoted showing common microbiota for both sample types.
 
-**Table**:
+**Figure 3**:
 
 ``` r
-# Table to look at Phylums 
-melted_obj %>%
-  filter(!is.na(Phylum)) %>%
-  group_by(BRD_affected_or_healthy_s, Phylum) %>%
-  tally() %>%
-  spread(key = BRD_affected_or_healthy_s,
-         value = n) %>%
-  arrange(desc(BRD), desc(healthy)) %>%
-  kable()
+# Metric to look at density of certain genuses?
+# Add code chunks as needed for your analyses
+# For most analyses, I would recommend splitting the
+# intensive computational part into a seperate R script file
+# and then just load your libraries and the data object here
+# using the `load()` function. Ask me for clarification if this is
+# unclear.
 ```
+
+**Table**:
 
 | Phylum                         |      BRD|                                                                                                                           healthy|
 |:-------------------------------|--------:|---------------------------------------------------------------------------------------------------------------------------------:|
@@ -312,19 +220,6 @@ melted_obj %>%
 
 **Table:**
 
-``` r
-# want a table to look att he number of times a certain genus occurs in both healthy and affected individuals
-melted_obj %>%
-  filter(!is.na(Genus)) %>%
-  group_by(BRD_affected_or_healthy_s, Genus) %>%
-  tally() %>%
-  spread(key = BRD_affected_or_healthy_s,
-         value = n) %>%
-  arrange(desc(BRD), desc(healthy)) %>%
-  head(5) %>%
-  kable()
-```
-
 | Genus            |    BRD|  healthy|
 |:-----------------|------:|--------:|
 | Prevotella       |  22260|    12720|
@@ -332,8 +227,6 @@ melted_obj %>%
 | Succiniclasticum |   2590|     1480|
 | Paraprevotella   |   2310|     1320|
 | Treponema        |   2170|     1240|
-
-In addition to a minimum of 5-10 figures/tables (and associated captions), you should include sufficient text in this section to describe what your findings were. Remember that in the results section you just describe what you found, but you don't interpret it - that happens in the discussion. 2-3 pages.
 
 Discussion
 ==========

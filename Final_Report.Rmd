@@ -63,7 +63,7 @@ Sequencing Data was compiled into a primary phyloseq object to be utilized withi
 
 Abundance measures the amount if a population of bacteria within a sample and can show the relative size of a colony residing in a tissue. The more abundant a particular colony the more probable that the colony type is thriving in the environment set forth. Analyzing the amount of bacteria in healthy and affected tissues can lead to information regarding the ability for bacteria to thrive within and calves. 
 
-```{r, add in all libraries, echo=FALSE}
+```{r, add in all libraries, echo=FALSE, message=FALSE}
 library("dplyr")
 library("tidyr")
 library("knitr")
@@ -77,24 +77,21 @@ library("RColorBrewer")
 ```
 
 
-```{r, pathway to read in Phyloseq Object, echo=FALSE}
+```{r, pathway to read in Phyloseq Object, echo=FALSE, message=FALSE}
 load("output/phyloseq_obj.RData")
 ```
 
-```{r, melt Phyloseq with Metadata table, echo=FALSE}
+```{r, melt Phyloseq with Metadata table, echo=FALSE, message=FALSE}
 # Melt Phyloseq
 melted_obj <- psmelt(phyloseq_obj)
 ```
 
-```{r, prune phyloseq, echo=FALSE}
+```{r, prune phyloseq, echo=FALSE, message=FALSE}
 # apply pruned data set
 pruned_phyloseq <- subset_samples(phyloseq_obj)
 ```
 
-
-## Subsections are ok in the results section too
-#Tables of interest
-
+# Analysis of Raw Colonies
 
 **Figure 1:**
 ```{r, Abundance of Bacteria Found in Sample Types, echo=FALSE}
@@ -143,6 +140,10 @@ plot_richness(pruned_phyloseq,
 ```
 Figure 3 outlines a Shannon Diversity Metric to look at the diversity of the samples from healthy and affected calves.
 
+## Comparison of Healthy and Affected Microbiome
+
+Direct comparisons of the differing microbiomes is important to the juxtaposition of healthy versus affected calves. Distinguishing how the two correlate could lead to evidence in regard to the bacteria responsible for young calf fatalities due to BRD.
+
 Ordination can be used as a exploratory measure for data clustering of similar and different multivariate types. Ordinations plot relationships between community microbiomes absed on richness and diversity metrics. The overlay of both population types can sowcase outliers in microbiome populations for affected samples and remove common microbiota within both to see the spread of the total community.
 
 **Figure 4**:
@@ -161,7 +162,7 @@ p1 <- plot_ordination(pruned_phyloseq,
 
 Figure 4: The observed Ordination, which distinguishes healthy and BRD affected calves, shows a level of relatedness for the healthy calf microbiome, but a large spread within affected calf microbiome. However, some overlap is denoted showing common microbiota for both sample types.
 
-**Figure 3**:
+**Figure 5**:
 ```{r, density metric}
 # Metric to look at density of certain genuses?
 # Add code chunks as needed for your analyses
@@ -172,7 +173,11 @@ Figure 4: The observed Ordination, which distinguishes healthy and BRD affected 
 # unclear.
 ```
 
-**Table**:
+## Analysis of Bacterial Types
+
+Grouping the number of bacteria seen within samples with a known bacterial definition can lead to information in regard to the most prevelant Phylum and Genus seen in healthy and affected individuals. These levels of abundance can be used to visualize colony growth and prosperity within calf tissues for asymtamatic (baseline) versus symptamatic calves.
+
+**Table 1**:
 ```{r, Phylum Table, echo=FALSE}
 # Table to look at Phylums 
 melted_obj %>%
@@ -185,10 +190,11 @@ melted_obj %>%
   kable()
 
 ```
-Figure 5 looks at the distribution of Phylums throughout the samples tested to see the different types of bacteria represented in the respiratory tract of the calves.
+
+Table 1 looks at the distribution of Phylums throughout the samples tested to see the different types of bacteria represented in the respiratory tract of the calves. 57.14% more bacteria is seen in affected calves for all Phylums observed.
 
 
-**Table:**
+**Table 2:**
 ```{r, Genus Table, echo=FALSE}
 # want a table to look att he number of times a certain genus occurs in both healthy and affected individuals
 melted_obj %>%
@@ -201,6 +207,20 @@ melted_obj %>%
   head(5) %>%
   kable()
   
+```
+
+Table 2 looks at the most relevant genuses for affected versus healthy tissue types. 57.14% more bacteria for each type is visualized in affected samples than healthy samples for all tested genuses.
+
+
+**Figure 6**:
+```{r, most unlike samples in ordination}
+# Metric to look at density of certain genuses?
+# Add code chunks as needed for your analyses
+# For most analyses, I would recommend splitting the
+# intensive computational part into a seperate R script file
+# and then just load your libraries and the data object here
+# using the `load()` function. Ask me for clarification if this is
+# unclear.
 ```
 
 
