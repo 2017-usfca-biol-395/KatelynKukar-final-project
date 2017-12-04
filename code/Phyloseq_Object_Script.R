@@ -1,4 +1,4 @@
-# This is an R Script to make a phyloseq object to be used within an Amplicon Report
+# This is an R Script to make a phyloseq object
 # This script will utilize data collected from NCBI in an SRA table
 
 # Be sure to install these packages before running this script
@@ -40,7 +40,7 @@ library("RColorBrewer")
 
 
 
-# The primary graphs represent each of 20 samples original sequence error margins.
+# Graphs represent each samples original sequence error margins.
 # NOTE: Much of the following follows the DADA2 tutorials available here:
 # https://benjjneb.github.io/dada2/tutorial.html
 # Accessed October 19, 2017
@@ -61,8 +61,8 @@ filenames_forward_reads <- file.path(path, filenames_forward_reads)
 # Plots the quality profiles of all twenty samples
 plotQualityProfile(filenames_forward_reads[1:10])
 
-#We can see from the quality profiles that most reads tend to get pretty bad in quality after around 200 bases. Therefore, we decided to set a maximum acceptable sequence length of 225 bases.
-
+# Reads tend to get pretty bad in quality after 300
+# Set quality at 300
 # Place filtered files in filtered/ subdirectory
 # note this will fail if the directory doesn't exist
 filter_path <- file.path("output", "filtered")
