@@ -27,10 +27,6 @@ Here we utilize NGS 16s amplicon analysis to identify the relevant changes in ba
 
 # Methods
 
-## Study design
-
-Add about half a page here. In this section instead of first person (I/we), use the authors of the paper you selected, since you'll just be describing what they did, based on the methods in their paper.
-
 ## Sample origin and sequencing
 
 All sample origins and sequencing was done by Johnston et al. and associated authors to obtain the data utilized throughout this analysis.
@@ -198,7 +194,7 @@ melted_obj %>%
   
 ```
 
-Table 2 looks at the most relevant genuses for affected versus healthy tissue types. 57.14% more bacteria for each type is visualized in affected samples than healthy samples for all tested genuses.
+Table 2 looks at the most relevant genera for affected versus healthy tissue types. 57.14% more bacteria for each type is visualized in affected samples than healthy samples for all tested genuses.
 
 
 
@@ -208,7 +204,7 @@ Bovine Respiratory Disease is currently the largest threat to the cattle industr
 
 	Within this paper we evaluate the differences within microbiota found in two lung tissues forms of healthy and known BRD affected calves. We predict that a community analysis will reveal significant differences within the richness and abundance of both sample types to yield evidence to support a decrease in immunity from known, heightened stress conditions. We further predict that the resulting genera deduced from OTU taxonomical analysis will correlate with immune deficiencies, environmental pressures, or dietary instabilities previously documented.
 	
-	Within Figure 1 we decipher the relationship that bacterial abundance has with the samples tested. We deduce that overall bacterial amounts are consistent between both affected and healthy bovine tissue samples. We can conclude that these results indicate that only a certain amount of bacteria can occupy each particular niche at a given time which is consistent with most environmental density curves, since the tissue offers a limited amount of resources to the bacteria meaning competition for these resources is dependent on the selection mechanisms for each bacterial type. If this is true then the community is k-selected and all bacteria forms are utilizing the max amount of resources from each tissue type either affected or healthy. We can hypothesize that the disease-causing bacteria may be more rich than that of the healthy bacteria in affected tissues, causing a decrease in potentially profitable bacterial types that increase the immunity within the cranial lung lobe tissue and mediastinal lymph node tissues collected.
+Within Figure 1 we decipher the relationship that bacterial abundance has with the samples tested. We deduce that overall bacterial amounts are consistent between both affected and healthy bovine tissue samples. We can conclude that these results indicate that only a certain amount of bacteria can occupy each particular niche at a given time which is consistent with most environmental density curves, since the tissue offers a limited amount of resources to the bacteria meaning competition for these resources is dependent on the selection mechanisms for each bacterial type. If this is true then the community is k-selected and all bacteria forms are utilizing the max amount of resources from each tissue type either affected or healthy. We can hypothesize that the disease-causing bacteria may be more rich than that of the healthy bacteria in affected tissues, causing a decrease in potentially profitable bacterial types that increase the immunity within the cranial lung lobe tissue and mediastinal lymph node tissues collected.
 	
 	To test if the richness is variable between healthy and affected samples Figure 2 looks at the overall spread of each unique species within the tissue samples. This richness plot shows that BRD affected samples have an increased spread of richness, with many outliers compared to healthy control variants. Though the mean richness for healthy calves is higher, the spread for affected calves indicates many species are inhabiting a similar niche. Figure 2 helps support the primary claim that though the total abundance is similar among populations, immune deficiency occurs because the disease-causing bacteria are inhabiting the same niche environment as bacteria in healthy samples causing increased selection pressures that allow the diseased bacteria to outcompete the endogenous species. 
 	
@@ -222,13 +218,13 @@ By, understanding that the affected calves have a greater richness of bacteria w
 	
 The most prevelant Phylum for both healthy and affected tissue is **Firmicutes**. **Firmicutes** is related to the immune system via...
 
-The most prevelant Genera for both healthy and affected tissue is **Protovella**. **Protovella** influences the immune system by
+The most prevelant Genera for both healthy and affected tissue is **Protovella**. **Protovella** influences the immune system by having direct relationships with diet. 
 	
 Overall, the immune system is the body’s defense against infectious organisms and microorganisms that could potentially harm imperative tissues or cells during their colonization. When the immune sstem recognizes foregin incaders it works to remove them from the environment using a network of cells, tissues, and organs; specifically leukocytes (Jamieson et al).. However, when overwhelmed with multiple invaders during co-infection the body becomes overwhelmed and will focus reservoirs of energy onto viral infections over bacterial colonization events. In this way BRD can easily infect young calves that are simultaneously fighting off more sever, short-term illnesses. When the viral infection is depleted usually the bacterial one has grown under asymptomatic expression until it can fully infect host tissue (Edward et al.) BRD from stress is also plausible since stress induced immunodeficiency is common even in human hosts. Chronic stress is seen when cortisol is circulating in the blood for long period of time to cause digestive issues and high blood pressure. Stress specifically targets the immune system by creating chronic inflammatory conditions and thereby increasing the production of cytokines to allow and autoimmune attack on healthy cells, leaving bacterial hosts able to colonize tissues without leukocyte or phagocytic removal (Reiche et al.).
 	
 Both of these cases are plausible given known bovine habitat situations and both can be fixed to increase the economic prosperity of the cattle industry by investing in better transportation and open pasture lifestyles. If the cattle industry pushes for an organic transition to allow grazing with supplemental vitamins the immunity of many calves would remain unaffected by BRD induced by stress or coinfection. 
 	
-Future directions for this study include...
+Future directions for this study include indentification of specific OTUs and there direct relationship with the immune system seen for bovine calves. More information also needs to be gathered to create qunatitative measures for the controlled change in immunity from stress during bovine transportation and in immediate feedlot conditions, compared to bovine calves in open air enviornments. Dietary and nutritional changes also must be accounted for due to the prevelance of **Protovella** and its relationship with bovine diet over the lifespan. By creating metrics to find the exact bacterium responsible for BRD and it's associations with immunity the cattle indsutry can protect its stock and simultaneously craft better, healthier agricultural methods for the bovine and the consumers.
 
 
 # Sources Cited
