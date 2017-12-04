@@ -1,5 +1,5 @@
 ---
-title: "Final Report: BRD causing Bacteria's Affects on the Cattle Industry"
+title: "BRD Bacterial Affects on the Cattle Industry"
 author: "Katelyn B. Kukar"
 date: "November 22, 2017"
 output:
