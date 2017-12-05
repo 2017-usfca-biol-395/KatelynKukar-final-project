@@ -3,8 +3,8 @@ title: "BRD Bacterial Affects on the Cattle Industry"
 author: "Katelyn B. Kukar, Naupaka Zimmerman"
 date: "November 22, 2017"
 output:
-    github_document: default
     word_document: default
+    github_document: default
 bibliography: references.bib
 csl: bioinformatics.csl
 ---
