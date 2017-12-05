@@ -133,6 +133,7 @@ plot_richness(pruned_phyloseq,
   theme_bw() +
   labs(title = "Healthy vs. Affected Diversity Metric")
 ```
+
 Figure 3 outlines a Shannon Diversity Metric to look at the diversity of the samples from healthy and affected calves. BRD affected samples have a large spread of diversity with a lower mean value than healthy samples.
 
 ## Comparison of Healthy and Affected Microbiome
@@ -169,6 +170,9 @@ melted_obj %>%
   ggplot(aes(x = Sample_Name_s,
              y = mean_abund,
              fill = Phylum)) +
+             labs(x = "Sample Name") +
+             labs(y = "Mean Abundance") +
+             labs(title = "Most Abundant Phyla") +
     geom_col()
 ```
 
