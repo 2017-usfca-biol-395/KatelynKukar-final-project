@@ -1,7 +1,7 @@
 ---
 title: "BRD Bacterial Affects on the Cattle Industry"
 author: "Katelyn B. Kukar, Naupaka Zimmerman"
-date: "November 22, 2017"
+date: "December 14th, 2017"
 output:
     word_document: default
     github_document: default
@@ -12,53 +12,52 @@ csl: bioinformatics.csl
 
 
 # Introduction
-The cattle industry is one of the world’s most important agricultural enterprises. Cattle breeding and production serves multiple purposes globally for traction, meat, and milk products to be consumed by the human populations within regions of interest. The largest percentage of cattle enterprises come from both North and South America, due to the origin of domestication and societal usages. In North America specifically, society developed cattle drives to bring beef to urban regions and serve the developing western world. In today’s society, these products are still extensively used to meet not only agricultural demands for beef or dairy, but also byproduct consumables for home, health, and industry. 
+The cattle industry is one of the world’s most important agricultural enterprises. Cattle breeding and production serves multiple purposes globally for traction, meat, and milk products to be consumed by the human populations within regions of interest. The largest percentage of cattle enterprises come from both North and South America, due to the origin of domestication and societal usages. In North America specifically, society developed cattle drives to bring beef to urban regions and serve the developing western world. In today’s society, these products are still extensively used to meet not only agricultural demands for beef or dairy, but also byproduct consumables for home, health, and industry [@citation]. 
 
-The extensive need for cattle within Northern America is thereby important to economic prosperity, making the wellness of the livestock imperative. Bovine respiratory disease is currently the most devastating disease of the United States cattle population with “annual observed incidences ranging from 5 to 44%” of feedlot calves affected [@snowder2006bovine]. From studies done on these incidences it has been determined that grain treatments and stress levels of feed calves are directly related to the infection of livestock with BRD, meaning economic prosperity from cattle can negatively affect the livestock itself [@snowder2006bovine].
+The extensive need for cattle within Northern America is thereby important to economic prosperity, making the wellness of the livestock imperative. Bovine respiratory disease (BRD) is currently the most devastating disease of the United States cattle population with “annual observed incidences ranging from 5 to 44%” of feedlot calves affected [@snowder2006bovine]. From studies done on these incidences it has been determined that grain treatments and stress levels of feed calves are directly related to the infection of livestock with BRD, meaning economic prosperity from cattle can negatively affect the livestock itself [@snowder2006bovine].
 
-In order to determine the economic effects of BRD, Garcia et al. looked at carcass traits to determine how disease changes the quality of meat within affected steers. Those animals treated for BRD have lower quality scores for the meat harvested and a reduction in fat thickness, meaning the diseased cattle had better consumer product worth. Treatment of the animals reduced product quality within the cattle industry [@garcia2010effect].  From this, the industry has concerning evidence to leave affected animals untreated, in order to prevent a loss in meat quality on high valued cattle reservoirs, and now must forecast how the death of young calves may outweigh the price lost in treatment of the entire stock.
+In order to determine the economic effects of BRD, researchers looked at carcass traits to determine how disease changes the quality of meat within affected steers [@garcia2010effect]. Those animals treated for BRD have lower quality scores for the meat harvested and a reduction in fat thickness, meaning the diseased cattle had better consumer product worth. Treatment of the animals reduced product quality within the cattle industry [@garcia2010effect].  From this, the industry has concerning evidence to leave affected animals untreated, in order to prevent a loss in meat quality on high valued cattle reservoirs, and now must forecast how the death of young calves may outweigh the price lost in treatment of the entire stock.
 
-Bovine respiratory disease is caused by the growth of pathogenic bacteria in lung tissue due to stress or viral infection. The syndrome itself arises from multiple factors, which are listed in Lekeu et al. as; age, general condition and immune status, environment, changes in food, temperature and humidity, and the presence of infectious agents [@lekeu1996bovine]. Since, the disease has two potential causes (stress or infection) it leads scientists to test the conditions with which a majority of calves incur the symptoms, and the grade of the syndrome that can be treated via vaccination or management practices [@lekeu1996bovine]. BRD is transmitted quickly through cattle stocks via inadequate ventilation from overcrowding and the pathogen alters the animal’s defense mechanism to allow colonization of the lower respiratory tract by bacteria [@fulton2000bovine]. This disease can affect all ages of cattle, but the industry has the highest level of concerns for calves, which have higher rates of mortality from BRD and outbreaks spreading in 60-100% of affected units in tested feedlots, specifically from M. Bovis [@arcangioli2008role].
+Bovine respiratory disease is caused by the growth of pathogenic bacteria in lung tissue due to stress or viral infection [@snowder2006bovine]. The syndrome itself arises from multiple factors, which are listed in Lekeu et al. as: age, general condition and immune status, environment, changes in food, temperature and humidity, and the presence of infectious agents [@lekeu1996bovine]. The disease has two potential causes (stress or infection) it leads scientists to test the conditions with which a majority of calves incur the symptoms, and the grade of the syndrome that can be treated via vaccination or management practices [@lekeu1996bovine]. BRD is transmitted quickly through cattle stocks via inadequate ventilation from overcrowding and the pathogen alters the animal’s defense mechanism to allow colonization of the lower respiratory tract by bacteria [@fulton2000bovine]. This disease can affect all ages of cattle, but the industry has the highest level of concerns for calves, which have higher rates of mortality from BRD and outbreaks spreading in 60-100% of affected units in tested feedlots [@arcangioli2008role].
 
-The cattle industry is incredibly important to the economic prosperity of the United State agricultural industry, with the wellness of young calves becoming an increasingly relevant concern for scientists. With the hopes of studying the bacteria associated in lung and mediastinal lymph node tissues of healthy and BRD-diseased calves, microbiologists hope to divulge the microbiome of the lower respiratory tract in order to conclude which bacteria species may be associated with BRD outbreaks alone [@kelly2017illumina]. 
-Here we utilize NGS 16s amplicon analysis to identify the relevant changes in bacterial community composition, within animals sampled, using Illumnia MiSeq from Johnston et al. We hypothesize that substantial bacterial community differences in the microbiome will arise within healthy and diseased samples. We predict rises in stress level will potentially cause lower immunity levels resulting in an increase in abundance and richness for affected cattle, when compared to baseline controls. From the diseased samples, we further assume that the bacterial genera found with the most significant changes in abundance will have potential relationships to pathogenic disease spreading seen in other livestock species or relationships with the environment, immune responses, or dietary instabilities. These found genera may also correlate to additional studies on Bovine Respiratory Disease as supporting evidence for a singular bacterial component of interest.
+The cattle industry is incredibly important to the economic prosperity of the United State agricultural industry, with the wellness of young calves becoming an increasingly relevant concern for scientists. Microbiologists aim to divulge information about the microbiome of the lower respiratory tract in order to conclude which bacteria species may be associated with BRD outbreaks alone [@kelly2017illumina]. Here we utilize NGS 16S amplicon analysis to identify the relevant changes in bacterial community composition, within animals sampled, using Illumnia MiSeq from Johnston et al. We hypothesize that substantial bacterial community differences in the microbiome will arise within healthy and diseased samples. We predict rises in stress level will potentially cause lower immunity levels resulting in an increase in abundance and richness for affected cattle, when compared to baseline controls. From the diseased samples, we further assume that the bacterial genera found with the most significant changes in abundance will have potential relationships to pathogenic disease spreading seen in other livestock species or relationships with the environment, immune responses, or dietary instabilities. These found genera may also correlate to additional studies on Bovine Respiratory Disease as supporting evidence for a singular bacterial component of interest.
 
 
 # Methods
 
 ## Sample origin and sequencing
 
-All sample origins and sequencing was done by Johnston et al. and associated authors to obtain the data utilized throughout this analysis.
+All sample origins and sequencing were done by Johnston et al. and associated authors to obtain the data utilized throughout this analysis.
 
 ### Tissue Collection:
-38 calves, from a variety of different farms, were selected post-mortem and had cranial lung lobe tissue samples removed, with 32 also having mediastinal lymph node tissues collected. BRD was diagnosed by three independent veterinary laboratories by pathologists through bacterial culture, virological and/or bacteriological PCR and histology for identification [@kelly2017illumina]. 20 samples of each tissue type were simultaneously collected from control healthy calves. These calves were slaughtered at 2.5 months and had clinical health checks done before slaughter [@kelly2017illumina]. One gram of lung tissue was extracted from lesions present on the cranial lobe for each sample type (healthy or affected) with 6 immediately frozen at -80 after collection [@kelly2017illumina]. The remaining samples were placed in RNALater RNA Stabilizing Reagent from Qiagen Inc. and stored based on kit instructions [@kelly2017illumina]. 
+Thirty-eight calves, from a variety of different farms, were selected post-mortem and had cranial lung lobe tissue samples removed, with thirty-two also having mediastinal lymph node tissues collected. BRD was diagnosed by three independent veterinary laboratories by pathologists through bacterial culture, virological and/or bacteriological PCR and histology for identification [@kelly2017illumina].Twenty samples of each tissue type were simultaneously collected from control healthy calves. These calves were slaughtered at two and a half months and had clinical health checks done before slaughter [@kelly2017illumina]. One gram of lung tissue was extracted from lesions present on the cranial lobe for each sample type (healthy or affected) with six immediately frozen at -80 after collection [@kelly2017illumina]. The remaining samples were placed in RNALater RNA Stabilizing Reagent from Qiagen Inc. and stored based on kit instructions [@kelly2017illumina]. 
 
 ### qPCR from Whole Tissue Samples:
-DNA extraction of these tissues occurred in a BSLII safety cabinet with Qiagen QIAampe Cador Pathogen Mini Kit after pre-treatments with enzymatic tissue digestion (T2) and for difficult to lyse bacteria (B1) [@kelly2017illumina]. Once treated, a small piece of tissue was homogenized and transferred to a micro centrifuge tube with proteinase K [@kelly2017illumina]. After nucleic acid was extracted RNA was removed using 5ul RNAase A solution for 100ul of purified samples. DNA was purified using Zymo Genomic DNA Clean and Concentrator -10 Kit[@kelly2017illumina]. A Nanodrop spechtrophotometer was used to quantify the DNA [@kelly2017illumina].
+DNA extraction of these tissues occurred in a BSLII safety cabinet with Qiagen QIAampe Cador Pathogen Mini Kit after pre-treatments with enzymatic tissue digestion (T2) and for difficult to lyse bacteria (B1) [@kelly2017illumina]. Once treated, a small piece of tissue was homogenized and transferred to a micro centrifuge tube with proteinase K [@kelly2017illumina]. After nucleic acid was extracted RNA was removed using 5ul RNAase A solution for 100ul of purified samples. DNA was purified using Zymo Genomic DNA Clean and Concentrator -10 Kit[@kelly2017illumina]. A Nanodrop spectrophotometer was used to quantify the DNA [@kelly2017illumina].
 
 ### Library Prep:
-One hundred and sixteen 16s rRNA gene amplicon libraries were prepared via PCR amplification of an approximate 467 bp region within the 16sRNA gene in bacteria from 50 ng of each of the extracted and purified DNA samples, using molecular water as a control [@kelly2017illumina]. This procedure followed guidelines set up by Illumnia 16s meta-genomic sequencing library protocol, with modifications based on sample type [@kelly2017illumina]. PCR was performed with broad spectrum 16s rRNA primers using Kapa HiFi HotStart 2x ReadyMix DNA polymerase (Kapa Biosystems Ltd., London, UK) [@kelly2017illumina]. Libraries were purified with AMPure XP beads and dual indices and Illumnia sequence adaptors from Illumnia Nextera XT index kits vs B and C were added to target amplicons of interest in a second PCR repeat [@kelly2017illumina]. A Nanodrop spectrophotometer measured for quality and purity before barcoded amplicon libraries were combined in equal concentrations into a single pool. Two ul of negative control were additionally added [@kelly2017illumina]. The library pool was quantified with KAPA SYBR FAST universal qPCR kit with Illumnia Primer Premix and size assessment on an Agilent 2100 Bioanalyser [@kelly2017illumina]. The library was prepped to MiSeq standards and the sequencing run was conducted on the Illumnia MiSeq using the 500 cycle MiSeq reagent kit (v2) with paired 250 bp reads [@kelly2017illumina]. The data was submitted as a BigProject to NCBI under accession number SRP080306 [@kelly2017illumina].
+One hundred and sixteen 16S rRNA gene amplicon libraries were prepared via PCR amplification of an approximate 467 bp region within the 16sRNA gene in bacteria from 50ng of each of the extracted and purified DNA samples, using molecular water as a control [@kelly2017illumina]. This procedure followed guidelines set up by Illumnia 16s meta-genomic sequencing library protocol, with modifications based on sample type [@kelly2017illumina]. PCR was performed with broad spectrum 16S rRNA primers using Kapa HiFi HotStart 2x ReadyMix DNA polymerase (Kapa Biosystems Ltd., London, UK) [@kelly2017illumina]. Libraries were purified with AMPure XP beads and dual indices and Illumnia sequence adaptors from Illumnia Nextera XT index kits vs B and C were added to target amplicons of interest in a second PCR repeat [@kelly2017illumina]. A Nanodrop spectrophotometer measured for quality and purity before barcoded amplicon libraries were combined in equal concentrations into a single pool. Two micro-liters of negative control were additionally added [@kelly2017illumina]. The library pool was quantified with KAPA SYBR FAST universal qPCR kit with Illumnia Primer Premix and size assessment on an Agilent 2100 Bioanalyser [@kelly2017illumina]. The library was prepped to MiSeq standards and the sequencing run was conducted on the Illumnia MiSeq using the 500 cycle MiSeq reagent kit (v2) with paired 250 bp reads [@kelly2017illumina]. The data were submitted as a BigProject to NCBI under accession number SRP080306 [@kelly2017illumina].
 
 
 ## Computational
 
-All computational analyses were conducted by students at the University of San Francisco and Naupaka Zimmerman on data received from Johnston et al. This sequencing data was evaluated individually for quality and hypotheses were furthered through statistical analyses to determine more information about the microbiome of BRD affected and healthy calves.
+All computational analyses were conducted by students at the University of San Francisco and Naupaka Zimmerman on data received from Johnston et al. This sequencing data were evaluated individually for quality and hypotheses were furthered through statistical analyses to determine more information about the microbiome of BRD affected and healthy calves.
 
-The packages required for analysis include: dplyr, tidyr, knitr, ggplot2, dada2, seqinr, mctoolsr, phyloseq, and RcolorBrewer. These can be downloaded through R our through their corresponding web links: https://benjjneb.github.io/dada2/dada-installation.html for dada2 to clean and analyze data, https://github.com/leffj/mctoolsr for mctoolsr.
+The packages required for analysis include: dplyr, tidyr, knitr, ggplot2, DADA2, seqinr, mctoolsr, phyloseq, and RcolorBrewer. These can be downloaded through R our through their corresponding web links: https://benjjneb.github.io/dada2/dada-installation.html for DADA2 to clean and analyze data, https://github.com/leffj/mctoolsr for mctoolsr.
 
 The BioProject, found under the listed NCBI accession number, needs to have the SRA table initially downloaded using the appropriate Toolkit. A script needs to be run to download the table and also extrapolate all run data from the table as fastaq files with associated quality scores. A fastq dump also is run with a splitting file code to split the forward and reverse reads into forward reads only to be analyzed within a dada pipeline as needed fast files  [@callahan2016].   
 
-The pipeline directly followed is DADA2 with information at https://benjjneb.github.io/dada2/tutorial.html. First the path for the data needs to be established with all fastq file sorted by the indicated run number for all samples. Once sorted graphs of the quality scores can be plotted with the plot quality profile function to determine the cut off point for all sequences. The files are filtered and placed into a filtered region of the folder to use in analysis [@callahan2016]. The sequences are then trimmed following dada pipeline constraints specific to Illumnia MiSeq parameters, which include maximum length required and errors allowed [@callahan2016]. A markdown table is produced to see the runs in and out before and after trimming to indicate the level of processing done on each file type [@callahan2016]. Error models are built to establish a trend of errors within the entirety of the project based on trimming constraints with an expected level of errors to make statistically viable figures; plot errors can visualize these trends [@callahan2016]. Removal of replicated sequences is an important pipeline quality check to ensure no replications skew data later in the pipeline. Dada is then run on all forward reads with MiSeq parameters to look at homopolymers and potential sequencing deficiencies with a post check of the run to evaluate sequences [@callahan2016]. A site by species matrix is produced to look at the sequence length, coupled with a histogram to see trimming parameters. We see all sequences are trimmed to the same length [@callahan2016]. Chimeras are removed to aid in the alignment of the sequences and normalize samples. A table can showcase how many sequences are left at each step of the pipeline to track the level of trimming, alignment, and removal of error using the track function within the dada pipeline [@callahan2016]. Taxonomies are assigned based on documented sequences through the taxa function, and exported as a taxa table for community analysis of known samples. Meta data is merged with taxonomies to bring in all known data about sample origin and sequencing processes from all stages of research on the healthy and affected bovine samples. This information is gathered in a phyloseq object and melted to create a usable data table with known information [@mcmurdie2013]. 
+The pipeline directly followed is DADA2 with information at https://benjjneb.github.io/dada2/tutorial.html. First the path for the data needs to be established with all fastq file sorted by the indicated run number for all samples. Once sorted graphs of the quality scores can be plotted with the plot quality profile function to determine the cut off point for all sequences. The files are filtered and placed into a filtered region of the folder to use in analysis [@callahan2016]. The sequences are then trimmed following dada pipeline constraints specific to Illumnia MiSeq parameters, which include maximum length required and errors allowed [@callahan2016]. A markdown table is produced to see the runs in and out before and after trimming to indicate the level of processing done on each file type [@callahan2016]. Error models are built to establish a trend of errors within the entirety of the project based on trimming constraints with an expected level of errors to make statistically viable figures; plot errors can visualize these trends [@callahan2016]. Removal of replicated sequences is an important pipeline quality check to ensure no replications skew data later in the pipeline. DADA2 is then run on all forward reads with MiSeq parameters to look at homopolymers and potential sequencing deficiencies with a post check of the run to evaluate sequences [@callahan2016]. A site by species matrix is produced to look at the sequence length, coupled with a histogram to see trimming parameters. We see all sequences are trimmed to the same length [@callahan2016]. Chimeras are removed to aid in the alignment of the sequences and normalize samples. A table can showcase how many sequences are left at each step of the pipeline to track the level of trimming, alignment, and removal of error using the track function within the DADA2 pipeline [@callahan2016]. Taxonomies are assigned based on documented sequences through the taxa function, and exported as a taxa table for community analysis of known samples. Meta data is merged with taxonomies to bring in all known data about sample origin and sequencing processes from all stages of research on the healthy and affected bovine samples. This information is gathered in a phyloseq object and melted to create a usable data table with known information [@mcmurdie2013]. 
 
-In all resulting statistical analyses the phyloseq object and melted object are applied to use ggplot2 in making tables and figures [@wickham2011ggplot2]. The pruning function removes Not Applicable data in some cases.
+In all resulting statistical analyses the phyloseq object and melted object are applied to use ggplot2 in making tables and figures [@wickham2011ggplot2]. The pruning function removes Not Applicable data in some cases [Cite R Core Team].
 
 # Results
 
-Sequencing Data was compiled into a primary phyloseq object to be utilized within R for comparative analyses [@wickham2011ggplot2]. The data will potentially give rise to information regarding the community aspects of the microbiome within the Bovine Respiratory Epithelium from lung and mediastinal lymph node tissues.
+Sequencing Data were compiled into a primary phyloseq object to be utilized in R for comparative analyses [@wickham2011ggplot2]. The data will potentially give rise to information regarding the community aspects of the microbiome within the Bovine Respiratory Epithelium from lung and mediastinal lymph node tissues.
 
 Abundance measures the amount if a population of bacteria within a sample and can show the relative size of a colony residing in a tissue. The more abundant a particular colony the more probable that the colony type is thriving in the environment set forth. Analyzing the amount of bacteria in healthy and affected tissues can lead to information regarding the ability for bacteria to thrive within and calves. 
 
-```{r, add in all libraries, echo=FALSE, message=FALSE}
+```{r, add-in-all-libraries, echo=FALSE, message=FALSE}
 library("dplyr")
 library("tidyr")
 library("knitr")
@@ -72,16 +71,16 @@ library("RColorBrewer")
 ```
 
 
-```{r, pathway to read in Phyloseq Object, echo=FALSE, message=FALSE}
+```{r, pathway-to-read-in-Phyloseq-Object, echo=FALSE, message=FALSE}
 load("output/phyloseq_obj.RData")
 ```
 
-```{r, melt Phyloseq with Metadata table, echo=FALSE, message=FALSE}
+```{r, melt-Phyloseq-with-Metadata-table, echo=FALSE, message=FALSE}
 # Melt Phyloseq
 melted_obj <- psmelt(phyloseq_obj)
 ```
 
-```{r, prune phyloseq, echo=FALSE, message=FALSE}
+```{r, prune-phyloseq, echo=FALSE, message=FALSE}
 # apply pruned data set
 pruned_phyloseq <- subset_samples(phyloseq_obj)
 ```
@@ -89,7 +88,7 @@ pruned_phyloseq <- subset_samples(phyloseq_obj)
 # Analysis of Raw Colonies
 
 **Figure 1:**
-```{r, Abundance of Bacteria Found in Sample Types, echo=FALSE}
+```{r, Abundance-of Bacteria-Found-in-Sample-Types, echo=FALSE}
 melted_obj %>%
   ggplot(
        aes(x = BRD_affected_or_healthy_s,
@@ -107,7 +106,7 @@ Figure 1 represents the abundance of bacteria found within the healthy or BRD af
 Richness is the quantification of different types of species living within a similar niche environment. Looking at the richness within affected and healthy bovine tissue samples will determine if a singular type of bacteria is present or many. If many different bacterial types make up the microbiome many different bacteria will be utilizing the nutritional resources provided by the calf's tissues. 
 
 **Figure 2**:
-```{r, Richness of Bacteria, echo=FALSE}
+```{r, Richness-of-Bacteria, echo=FALSE}
 #abundance, boxplot, table of values
 plot_richness(pruned_phyloseq,
               x = "BRD_affected_or_healthy_s",
@@ -123,7 +122,7 @@ Figure 2 represents the richness of bacterial samples found within healthy and a
 Shannon Diversity works to combine both the abundance and evenness of a certain community sample set. Shannon Diversity applies a true diversity algorithm that refers to the number of equally abundant types needed for the average proportional abundance of the types to equal that observed in a data set where all types may not actually be equal. It utilizes H to assume the proportion of each species type is indicative of their importance of diversity or the overall biomass of the community. Within bovine tissues the diversity metric will provide insight on how different the microbiomes for healthy and affected calves are. Evenness within the niche can further determine if each species of bacteria represents a similar abundance throughout the tissue or if one species has a higher selection coefficient to compete for resources. In BRD affected calves one species of bacteria may be more prevalent in acquiring nutrition from the tissues it resides in leaving to faster death during bacterial colony expansion. Evenness works as a diversity index to measure the biodiversity in a reference community to see how equal each species variant is numerically.
 
 **Figure 3**:
-```{r, Shannon Diversity Metric, echo=FALSE}
+```{r, Shannon-Diversity-Metric, echo=FALSE}
 # alpha diversity metrics
 plot_richness(pruned_phyloseq,
               x = "BRD_affected_or_healthy_s",
@@ -160,7 +159,7 @@ p1
 Figure 4: The observed Ordination, which distinguishes healthy and BRD affected calves, shows a level of relatedness for the healthy calf microbiome, but a large spread within affected calf microbiome. However, some overlap is denoted showing common microbiota for both sample types.
 
 **Figure 5**:
-```{r, Phlyum Comparison of Affected and Non}
+```{r, Phlyum-Comparison-of-Affected-and-Non, echo = FALSE}
 # filter the sample name and see the phylum make up
 
 melted_obj %>%
@@ -184,7 +183,7 @@ Figure 5 represents all Phyla within the samples from healthy calves seen in the
 Grouping the number of bacteria seen within samples with a known bacterial definition can lead to information in regard to the most prevalent Phyla and Genera seen in healthy and affected individuals. These levels of abundance can be used to visualize colony growth and prosperity within calf tissues for asymptomatic (baseline) versus symptomatic calves.
 
 **Table 1**:
-```{r, Phylum Table, echo=FALSE}
+```{r, Phylum-Table, echo=FALSE}
 # Table to look at Phylums
 melted_obj %>%
   filter(!is.na(Phylum)) %>%
@@ -201,7 +200,7 @@ Table 1 looks at the distribution of Phyla throughout the samples tested to see 
 
 
 **Table 2:**
-```{r, Genus Table, echo=FALSE}
+```{r, Genus-Table, echo=FALSE}
 # Genera abundance
 melted_obj %>%
   filter(!is.na(Genus)) %>%
