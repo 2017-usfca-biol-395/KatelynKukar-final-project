@@ -3,10 +3,12 @@ title: "BRD Bacterial Affects on the Cattle Industry"
 author: "Katelyn B. Kukar, Naupaka Zimmerman"
 date: "December 14th, 2017"
 output:
-    word_document: default
-    github_document: default
-bibliography: references.bib
+  html_document:
+    df_print: paged
+  github_document: default
+  word_document: default
 csl: bioinformatics.csl
+bibliography: references.bib
 ---
 
 
@@ -27,7 +29,7 @@ The cattle industry is incredibly important to the economic prosperity of the Un
 
 ## Sample origin and sequencing
 
-All sample origins and sequencing were done by Johnston et al. and associated authors to obtain the data utilized throughout this analysis.
+All sample origins and sequencing were done by Kelly et al. and associated authors to obtain the data utilized throughout this analysis.
 
 ### Tissue Collection:
 Thirty-eight calves, from a variety of different farms, were selected post-mortem and had cranial lung lobe tissue samples removed, with thirty-two also having mediastinal lymph node tissues collected. BRD was diagnosed by three independent veterinary laboratories by pathologists through bacterial culture, virological and/or bacteriological PCR and histology for identification [@kelly2017illumina].Twenty samples of each tissue type were simultaneously collected from control healthy calves. These calves were slaughtered at two and a half months and had clinical health checks done before slaughter [@kelly2017illumina]. One gram of lung tissue was extracted from lesions present on the cranial lobe for each sample type (healthy or affected) with six immediately frozen at -80 after collection [@kelly2017illumina]. The remaining samples were placed in RNALater RNA Stabilizing Reagent from Qiagen Inc. and stored based on kit instructions [@kelly2017illumina]. 
@@ -41,7 +43,7 @@ One hundred and sixteen 16S rRNA gene amplicon libraries were prepared via PCR a
 
 ## Computational
 
-All computational analyses were conducted by students at the University of San Francisco and Naupaka Zimmerman on data received from Johnston et al (2017). This sequencing data were evaluated individually for quality and hypotheses were furthered through statistical analyses to determine more information about the microbiome of BRD affected and healthy calves.
+All computational analyses were conducted by students at the University of San Francisco and Naupaka Zimmerman on data received from Kelly et al (2017). This sequencing data were evaluated individually for quality and hypotheses were furthered through statistical analyses to determine more information about the microbiome of BRD affected and healthy calves.
 
 The packages required for analysis include: dplyr, tidyr, knitr, ggplot2, DADA2, seqinr, mctoolsr, phyloseq, and RcolorBrewer. These can be downloaded through R our through their corresponding web links: https://benjjneb.github.io/dada2/dada-installation.html for DADA2 to clean and analyze data, https://github.com/leffj/mctoolsr for mctoolsr.
 
