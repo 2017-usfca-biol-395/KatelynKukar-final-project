@@ -182,7 +182,7 @@ Figure 5: Represents all Phylum within the samples from healthy calves seen in t
 
 ## Analysis of Bacterial Types
 
-Grouping the number of bacteria seen within samples by a known bacterial taxonmic classification can lead to information in regard to the most prevalent Phyla and Genera seen in healthy and affected individuals. These levels of abundance can be used to visualize colony growth and prosperity within calf tissues for asymptomatic (baseline) versus symptomatic calves.
+Grouping the number of bacteria seen within samples by a known bacterial taxonomic classification can lead to information in regard to the most prevalent Phyla and Genera seen in healthy and affected individuals. These levels of abundance can be used to visualize colony growth and prosperity within calf tissues for asymptomatic (baseline) versus symptomatic calves.
 
 **Table 1**:
 ```{r, Phylum-Table, echo=FALSE}
